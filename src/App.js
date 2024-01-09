@@ -1,3 +1,5 @@
+import './App.css';
+
 import React, { useState } from 'react';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
@@ -7,6 +9,7 @@ function App() {
     name: '',
     email: '',
     age: '',
+    sex: '',
   });
 
   const handleChange = (e) => {
@@ -27,9 +30,9 @@ function App() {
   };
 
   return (
-    <div className="App min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md">
-        <h1 className="text-2xl font-bold mb-6">User Data Export to Excel</h1>
+    
+      <div className="bg-white p-5 rounded shadow-md">
+        <h1 className="text-2xl font-bold mb-6">Data Entry</h1>
         <form className="space-y-4">
           <div className="flex flex-col">
             <label htmlFor="name" className="mb-1">
@@ -41,7 +44,7 @@ function App() {
               name="name"
               value={userData.name}
               onChange={handleChange}
-              className="border rounded px-2 py-1"
+              className="border rounded px-1 py-1"
             />
           </div>
           <div className="flex flex-col">
@@ -70,16 +73,29 @@ function App() {
               className="border rounded px-2 py-1"
             />
           </div>
+          <div className="flex flex-col">
+            <label htmlFor="sex" className="mb-1">
+              Sex:
+            </label>
+            <input
+              type="text"
+              id="sex"
+              name="sex"
+              value={userData.sex}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
           <button
             type="button"
             onClick={exportToExcel}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600"
           >
             Export to Excel
           </button>
         </form>
       </div>
-    </div>
+ 
   );
 }
 

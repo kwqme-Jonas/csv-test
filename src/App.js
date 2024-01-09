@@ -6,10 +6,10 @@ import { saveAs } from 'file-saver';
 
 function App() {
   const [userData, setUserData] = useState({
-    name: '',
-    email: '',
-    age: '',
-    sex: '',
+    date: '',
+    region: '',
+    contractor: '',
+    welder: '',
   });
 
   const handleChange = (e) => {
@@ -30,70 +30,125 @@ function App() {
   };
 
   return (
-    
-      <div className="bg-white p-5 rounded shadow-md">
-        <h1 className="text-2xl font-bold mb-6">Data Entry</h1>
-        <form className="space-y-4">
+      <div className="bg-white">
+       <h1 className="text-xl font-bold text-start bg-slate-500 px-2 py-2 text-white shadow-lg">
+      Data Entry
+    </h1>
+        <h1 className="text-2xl font-bold  p-4 text-start mt-4 text-blue-600">Expirement Set Up</h1>
+        <form className="space-y-4 grid grid-cols-3 gap-4 p-4">
+          <div className="flex flex-col p-4">
+            <label htmlFor="date" className="mb-1">
+              Date:
+            </label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={userData.date}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="text" className="mb-1">
+              Region:
+            </label>
+            <input
+              type="text"
+              id="region"
+              name="region"
+              value={userData.region}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
           <div className="flex flex-col">
             <label htmlFor="name" className="mb-1">
-              Name:
+              Contractor:
             </label>
             <input
               type="text"
-              id="name"
-              name="name"
-              value={userData.name}
-              onChange={handleChange}
-              className="border rounded px-1 py-1"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="email" className="mb-1">
-              Email:
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={userData.email}
+              id="contractor"
+              name="contractor"
+              value={userData.contractor}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="age" className="mb-1">
-              Age:
-            </label>
-            <input
-              type="number"
-              id="age"
-              name="age"
-              value={userData.age}
-              onChange={handleChange}
-              className="border rounded px-2 py-1"
-            />
-          </div>
-          <div className="flex flex-col">
-            <label htmlFor="sex" className="mb-1">
-              Sex:
+            <label htmlFor="name" className="mb-1">
+              Welder:
             </label>
             <input
               type="text"
-              id="sex"
-              name="sex"
-              value={userData.sex}
+              id="welder"
+              name="welder"
+              value={userData.welder}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
           </div>
-          <button
+
+          <div className="flex flex-col">
+            <label htmlFor="name" className="mb-1">
+              Welder:
+            </label>
+            <input
+              type="text"
+              id="welder"
+              name="welder"
+              value={userData.welder}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="name" className="mb-1">
+              Welder:
+            </label>
+            <input
+              type="text"
+              id="welder"
+              name="welder"
+              value={userData.welder}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="name" className="mb-1">
+              Welder:
+            </label>
+            <input
+              type="text"
+              id="welder"
+              name="welder"
+              value={userData.welder}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="name" className="mb-1">
+              Welder:
+            </label>
+            <input
+              type="text"
+              id="welder"
+              name="welder"
+              value={userData.welder}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+        </form>
+        <button
             type="button"
             onClick={exportToExcel}
-            className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600 m-8"
           >
             Export to Excel
           </button>
-        </form>
       </div>
  
   );

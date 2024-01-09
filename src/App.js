@@ -27,43 +27,58 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>User Data Export to Excel</h1>
-      <form>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={userData.name}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={userData.email}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <label>
-          Age:
-          <input
-            type="number"
-            name="age"
-            value={userData.age}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
-        <button type="button" onClick={exportToExcel}>
-          Export to Excel
-        </button>
-      </form>
+    <div className="App min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="bg-white p-8 rounded shadow-md">
+        <h1 className="text-2xl font-bold mb-6">User Data Export to Excel</h1>
+        <form className="space-y-4">
+          <div className="flex flex-col">
+            <label htmlFor="name" className="mb-1">
+              Name:
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={userData.name}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="email" className="mb-1">
+              Email:
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={userData.email}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="age" className="mb-1">
+              Age:
+            </label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              value={userData.age}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <button
+            type="button"
+            onClick={exportToExcel}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Export to Excel
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

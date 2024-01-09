@@ -10,6 +10,11 @@ function App() {
     region: '',
     contractor: '',
     welder: '',
+    cap_positive: '',
+    cap_negative: '',
+    district: '',
+    town: '',
+    adhesive: '',
   });
 
   const handleChange = (e) => {
@@ -37,7 +42,7 @@ function App() {
         <h1 className="text-2xl font-bold  p-4 text-start mt-4 text-blue-600">Expirement Set Up</h1>
         <form className="space-y-4 grid grid-cols-3 gap-4 p-4">
           <div className="flex flex-col p-4">
-            <label htmlFor="date" className="mb-1">
+            <label htmlFor="date" className="font-bold mb-1">
               Date:
             </label>
             <input
@@ -50,7 +55,7 @@ function App() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="text" className="mb-1">
+            <label htmlFor="text" className="font-bold mb-1">
               Region:
             </label>
             <input
@@ -63,7 +68,7 @@ function App() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1">
+            <label htmlFor="name" className="font-bold mb-1">
               Contractor:
             </label>
             <input
@@ -76,7 +81,7 @@ function App() {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1">
+            <label htmlFor="name" className="font-bold mb-1">
               Welder:
             </label>
             <input
@@ -90,53 +95,66 @@ function App() {
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1">
-              Welder:
+            <label htmlFor="text" className="font-bold mb-1">
+              Cap positive:
             </label>
             <input
               type="text"
-              id="welder"
-              name="welder"
-              value={userData.welder}
+              id="cap_positive"
+              name="cap_positive"
+              value={userData.cap_positive}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1">
-              Welder:
+            <label htmlFor="text" className="font-bold mb-1">
+              Cap Negative:
             </label>
             <input
               type="text"
-              id="welder"
-              name="welder"
-              value={userData.welder}
+              id="cap_negative"
+              name="cap_negative"
+              value={userData.cap_negative}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1">
-              Welder:
+            <label htmlFor="text" className="font-bold mb-1">
+              District:
             </label>
             <input
               type="text"
-              id="welder"
-              name="welder"
-              value={userData.welder}
+              id="district"
+              name="district"
+              value={userData.district}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="mb-1">
-              Welder:
+            <label htmlFor="text" className="font-bold mb-1">
+              Town:
             </label>
             <input
               type="text"
-              id="welder"
-              name="welder"
-              value={userData.welder}
+              id="town"
+              name="town"
+              value={userData.town}
+              onChange={handleChange}
+              className="border rounded px-2 py-1"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="text" className="font-bold mb-1">
+              Adhesive:
+            </label>
+            <input
+              type="text"
+              id="adhesive"
+              name="adhesive"
+              value={userData.adhesive}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />

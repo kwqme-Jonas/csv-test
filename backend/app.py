@@ -1,8 +1,10 @@
 # app.py (Flask server)
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import subprocess
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/submitForm', methods=['POST'])
 def submit_form():

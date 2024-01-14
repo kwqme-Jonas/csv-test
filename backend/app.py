@@ -13,7 +13,7 @@ def submit_form():
         addon = data.get('addon')
 
         # Execute the Python script
-        result = subprocess.check_output(['python', 'C:\Users\User\Desktop\test\excel-extract\backend', '-index', index, '-addon', addon])
+        result = subprocess.check_output(['python', 'C:\\Users\\User\\Desktop\\test\\excel-extract\\backend', '-index', index, '-addon', addon])
         
         return jsonify({'success': True, 'result': result.decode('utf-8')})
     except Exception as e:

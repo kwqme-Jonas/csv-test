@@ -1,4 +1,4 @@
-# app.py (Flask server)
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import subprocess
@@ -26,5 +26,5 @@ def submit_form():
     except Exception as e:
         return jsonify({'success': False, 'error': str(e)})
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(debug=True)

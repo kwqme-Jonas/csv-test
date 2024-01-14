@@ -4,7 +4,7 @@ import subprocess
 
 app = Flask(__name__)
 
-@app.route('/submit-form', methods=['POST'])
+@app.route('/', methods=['POST'])
 def submit_form():
     try:
         # Extract data from the form submission

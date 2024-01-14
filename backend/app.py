@@ -5,7 +5,7 @@ import subprocess
 
 app = Flask(__name__)
 CORS(app, origins=["http://localhost:3000"])
-CORS(app, resources={r"/submitForm": {"origins": "http://localhost:3000", "methods": ["POST"], "allow_headers": ["Content-Type"]}})
+@app.route('/submitForm', methods=['POST'])
 def submit_form():
     try:
         # Extract data from the form submission

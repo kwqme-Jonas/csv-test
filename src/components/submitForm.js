@@ -42,7 +42,6 @@ function SubmitForm() {
     district: '',
     town: '',
     adhesive: '',
-    // Add other form fields as needed
 });
 
 const handleSubmit = async (e) => {
@@ -60,7 +59,7 @@ const handleSubmit = async (e) => {
         if (response.ok) {
             const result = await response.json();
             console.log(result);
-            // Handle the result as needed
+  
         } else {
             console.error('Error:', response.statusText);
         }
@@ -98,11 +97,11 @@ const handleChange = (e) => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="text" className="font-bold mb-1">
+            <label htmlFor="name" className="font-bold mb-1">
               Region:
             </label>
             <input
-              type="text"
+              type="name"
               id="region"
               name="region"
               value={formData.region}
@@ -115,7 +114,7 @@ const handleChange = (e) => {
               Contractor:
             </label>
             <input
-              type="text"
+              type="name"
               id="contractor"
               name="contractor"
               value={formData.contractor}
@@ -124,7 +123,7 @@ const handleChange = (e) => {
             />
           </div>
           <div className="flex flex-col">
-            <label htmlFor="name" className="font-bold mb-1">
+            <label htmlFor="text" className="font-bold mb-1">
               Welder:
             </label>
             <input

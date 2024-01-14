@@ -208,7 +208,7 @@ const handleChange = (e) => {
             onClick={handleSubmit}
             className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600 m-8"
           >
-            Export to Excel
+            Submit
           </button>
       </div>
 

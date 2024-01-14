@@ -5,7 +5,7 @@ import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
 
 function App() {
-  const [userData, setUserData] = useState({
+  /*const [userData, setUserData] = useState({
     date: '',
     region: '',
     contractor: '',
@@ -16,6 +16,8 @@ function App() {
     town: '',
     adhesive: '',
   });
+
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -32,7 +34,52 @@ function App() {
     const excelBuffer = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
     const data = new Blob([excelBuffer], { type: 'application/octet-stream' });
     saveAs(data, 'user_data.xlsx');
-  };
+  };*/
+
+  const [formData, setFormData] = useState({
+    date: '',
+    region: '',
+    contractor: '',
+    welder: '',
+    cap_positive: '',
+    cap_negative: '',
+    district: '',
+    town: '',
+    adhesive: '',
+    // Add other form fields as needed
+});
+
+const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+        const response = await fetch('http://localhost:5000/submit-form', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            const result = await response.json();
+            console.log(result);
+            // Handle the result as needed
+        } else {
+            console.error('Error:', response.statusText);
+        }
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+};
+
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+        ...prevData,
+        [name]: value,
+    }));
+};
 
   return (
       <div className="bg-white">
@@ -49,7 +96,7 @@ function App() {
               type="date"
               id="date"
               name="date"
-              value={userData.date}
+              value={formData.date}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -62,7 +109,7 @@ function App() {
               type="text"
               id="region"
               name="region"
-              value={userData.region}
+              value={formData.region}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -75,7 +122,7 @@ function App() {
               type="text"
               id="contractor"
               name="contractor"
-              value={userData.contractor}
+              value={formData.contractor}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -88,7 +135,7 @@ function App() {
               type="text"
               id="welder"
               name="welder"
-              value={userData.welder}
+              value={formData.welder}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -102,7 +149,7 @@ function App() {
               type="text"
               id="cap_positive"
               name="cap_positive"
-              value={userData.cap_positive}
+              value={formData.cap_positive}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -115,7 +162,7 @@ function App() {
               type="text"
               id="cap_negative"
               name="cap_negative"
-              value={userData.cap_negative}
+              value={formData.cap_negative}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -128,7 +175,7 @@ function App() {
               type="text"
               id="district"
               name="district"
-              value={userData.district}
+              value={formData.district}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -141,7 +188,7 @@ function App() {
               type="text"
               id="town"
               name="town"
-              value={userData.town}
+              value={formData.town}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -154,7 +201,7 @@ function App() {
               type="text"
               id="adhesive"
               name="adhesive"
-              value={userData.adhesive}
+              value={formData.adhesive}
               onChange={handleChange}
               className="border rounded px-2 py-1"
             />
@@ -162,7 +209,7 @@ function App() {
         </form>
         <button
             type="button"
-            onClick={exportToExcel}
+            onClick={handleSubmit}
             className="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600 m-8"
           >
             Export to Excel

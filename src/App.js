@@ -11,8 +11,8 @@ function App() {
     <Router>
       <div>
         <Routes>
-          <Route path="/" exact component={Home} />
-          <Route path="/submitForm" component={SubmitForm} />
+          <Route path="/" exact element={<Home />} />
+          <Route path="/submitForm" element={<SubmitForm />} />
         </Routes>
       </div>
     </Router>
